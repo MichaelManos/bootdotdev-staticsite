@@ -1,16 +1,16 @@
 from __future__ import annotations
-from enum import Enum
+import enum
 
 from htmlnode import LeafNode
 
 
-class TextType(Enum):
-    TEXT = "text (plain)"
-    BOLD = "**Bold text**"
-    ITALIC = "_Italic text_"
-    CODE = "`Code text`"
-    LINK = "[anchor text](url)"
-    IMAGE = "![alt text](url)"
+class TextType(enum.Enum):
+    TEXT = "TextType.TEXT"
+    BOLD = "TextType.BOLD"
+    ITALIC = "TextType.ITALIC"
+    CODE = "TextType.CODE"
+    LINK = "TextType.LINK"
+    IMAGE = "TextType.IMAGE"
 
 
 class TextNode:
@@ -27,7 +27,7 @@ class TextNode:
         )
 
     def __repr__(self):
-        return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
+        return f"TextNode('{self.text}', {self.text_type.value}, '{self.url}')"
 
 
 def text_node_to_html_node(text_node):
