@@ -3,9 +3,9 @@ import shutil
 
 
 def copy_folder(source, destination):
-    shutil.rmtree(destination)
-    if not os.path.exists(destination):
-        os.mkdir(destination)
+    if os.path.exists(destination):
+        shutil.rmtree(destination)
+    os.mkdir(destination)
     contents = os.listdir(source)
     for content in contents:
         path = os.path.join(source, content)
