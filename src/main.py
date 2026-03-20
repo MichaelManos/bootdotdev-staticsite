@@ -1,12 +1,14 @@
-# import os
+import sys
 import utils
 import generator
 
 
 def main():
-    # root_dir = os.path.join(os.path.dirname(__file__), "..")
+    base_path = "/"
+    if len(sys.argv) > 1:
+        base_path = sys.argv[1]
     utils.copy_folder("static", "public")
-    generator.generate_pages_recursive("content", "template.html", "public")
+    generator.generate_pages_recursive("content", "template.html", "docs", base_path)
 
 
 if __name__ == "__main__":
