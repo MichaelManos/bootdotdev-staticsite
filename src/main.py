@@ -1,9 +1,11 @@
-from textnode import TextNode, TextType
+import os
+import utils
 
 
 def main():
-    tn = TextNode("Text", TextType.ITALIC)
-    print(tn)
+    root_dir = os.path.join(os.path.dirname(__file__), "..")
+    utils.copy_folder("static", "public")
+
 
 if __name__ == "__main__":
     main()

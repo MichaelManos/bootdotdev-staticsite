@@ -21,7 +21,7 @@ class HTMLNode:
         return True
 
     def __repr__(self) -> str:
-        print(f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})")
+        return f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})"
 
     def to_html(self) -> str:
         raise NotImplementedError
@@ -43,7 +43,7 @@ class LeafNode(HTMLNode):
         super().__init__(tag=tag, value=value, children=None, props=props)
 
     def __repr__(self) -> str:
-        print(f"LeafNode({self.tag}, {self.value}, {self.props})")
+        return f"LeafNode({self.tag}, {self.value}, {self.props})"
 
     def to_html(self) -> str:
         if self.value is None:
@@ -64,7 +64,7 @@ class ParentNode(HTMLNode):
         super().__init__(tag=tag, value=None, children=children, props=props)
 
     def __repr__(self) -> str:
-        print(f"ParentNode({self.tag}, {self.children}, {self.props})")
+        return f"ParentNode({self.tag}, {self.children}, {self.props})"
 
     def to_html(self) -> str:
         if self.tag is None or self.tag == "":
